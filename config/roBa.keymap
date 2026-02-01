@@ -3,6 +3,32 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+// MacのJIS配列キーボード設定用の変換定義
+// OS設定を「日本語キーボード」にしたまま正しい記号を入力できるようにします
+#define JP_DQUOTE       AT                // "（ダブルクォーテーション）
+#define JP_AMPERSAND    CARET             // &（アンパサンド）
+#define JP_QUOTE        AMPERSAND         // '（シングルクォート）
+#define JP_EQUAL        UNDER             // =（イコール）
+#define JP_CARET        EQUAL             // ^（キャレット）
+#define JP_YEN          0x89              // ¥（円記号）
+#define JP_PLUS         COLON             // +（プラス）
+#define JP_TILDE        PLUS              // ~（チルダ）
+#define JP_PIPE         LS(0x89)          // |（パイプ）
+#define JP_AT           LEFT_BRACKET      // @（アットマーク）
+#define JP_COLON        SINGLE_QUOTE      // :（コロン）
+#define JP_ASTERISK     DOUBLE_QUOTES     // *（アスタリスク）
+#define JP_BACKQUOTE    LEFT_BRACE        // `（バッククォート）
+#define JP_UNDERSCORE   LS(0x87)          // _（アンダースコア）
+#define JP_LBRACKET     RIGHT_BRACKET     // [（左角カッコ）
+#define JP_RBRACKET     BACKSLASH         // ]（右角カッコ）
+#define JP_LPAREN       ASTERISK          // (（左丸カッコ）
+#define JP_RPAREN       LEFT_PARENTHESIS  // )（右丸カッコ）
+#define JP_LBRACE       RIGHT_BRACE       // {（左波カッコ）
+#define JP_RBRACE       PIPE              // }（右波カッコ）
+#define JP_KANA         LANGUAGE_1        // かな（日本語入力ON）
+#define JP_EISU         LANGUAGE_2        // 英数（英語入力）
+#define JP_HANZEN       GRAVE             // 半角/全角
+
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
@@ -41,17 +67,17 @@
         };
 
         muhennkann {
-            bindings = <&to_layer_0 INT_MUHENKAN>;
+            bindings = <&to_layer_0 JP_EISU>;
             key-positions = <11 10>;
         };
 
         double_quotation {
-            bindings = <&kp DOUBLE_QUOTES>;
+            bindings = <&kp JP_DQUOTE>;
             key-positions = <20 21>;
         };
 
         eq {
-            bindings = <&kp EQUAL>;
+            bindings = <&kp JP_EQUAL>;
             key-positions = <24 25>;
         };
     };
@@ -81,10 +107,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                        &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                        &kp B        &kp COLON                          &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &lt 2 SPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
+&kp Q             &kp W         &kp E         &kp R                    &kp T                                                       &kp Y        &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S         &kp D         &kp F                    &kp G        &kp LS(LG(S))                   &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                    &kp B        &kp COLON                       &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 JP_KANA  &lt 2 SPACE  &lt_to_layer_0 3 JP_EISU      &mt LCTRL BACKSPACE  &lt 1 ENTER                   &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -101,10 +127,10 @@
 
         NUM {
             bindings = <
-&kp MINUS                   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                   &kp CARET         &kp AMPERSAND      &kp TILDE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp SLASH                   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp EXCLAMATION   &kp AT_SIGN        &kp HASH        &kp DOLLAR            &kp PERCENT
-&mt LEFT_SHIFT KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                    &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp BACKSLASH
-&trans                      &trans           &trans           &trans           &trans        &trans                       &trans          &trans                                                                     &kp PIPE
+&kp MINUS                   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp JP_PLUS                                                    &kp JP_CARET      &kp JP_AMPERSAND   &kp JP_TILDE    &kp JP_LPAREN   &kp JP_RPAREN
+&kp SLASH                   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp JP_ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp JP_UNDERSCORE  &kp EXCLAMATION   &kp JP_AT          &kp HASH        &kp DOLLAR      &kp PERCENT
+&mt LEFT_SHIFT KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD       &kp JP_EQUAL                 &trans             &kp JP_LBRACKET   &kp JP_RBRACKET    &kp JP_LBRACE   &kp JP_RBRACE   &kp JP_YEN
+&trans                      &trans           &trans           &trans           &trans           &trans                       &trans             &trans                                                               &kp JP_PIPE
             >;
         };
 
