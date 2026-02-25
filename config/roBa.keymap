@@ -110,7 +110,7 @@
 &kp Q             &kp W         &kp E         &kp R            &kp T                                                  &kp Y        &kp U  &lt 5 I    &kp O    &kp P
 &kp A             &kp S         &kp D         &kp F            &kp G        &kp LS(LG(S))                &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
 &kp Z             &kp X         &kp C         &kp V            &kp B        &mt LEFT_SHIFT COLON                    &mt LEFT_SHIFT SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&mt LCTRL ESCAPE  &kp LEFT_SHIFT  &kp LEFT_ALT  &mt LGUI JP_KANA  &lt 2 SPACE  &lt_to_layer_0 3 JP_EISU      &mt LCTRL BACKSPACE  &mt LGUI ENTER                   &lt 1 DEL
+&mt LCTRL ESCAPE  &kp LEFT_SHIFT  &kp LEFT_ALT  &mt LGUI JP_KANA  &lt 2 SPACE  &lt_to_layer_0 3 JP_EISU      &mt LCTRL BACKSPACE  &mt RGUI ENTER                   &lt 1 DEL
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
