@@ -106,6 +106,14 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <30>;
+        };
     };
 
     keymap {
@@ -119,7 +127,7 @@
 &mt LCTRL ESCAPE  &kp LEFT_SHIFT  &kp LEFT_ALT  &lt_to_layer_0 3 JP_EISU  &lt 2 SPACE  &mt LGUI JP_KANA      &mt LCTRL BACKSPACE  &mt RGUI ENTER                   &lt 1 DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         FUNCTION {
