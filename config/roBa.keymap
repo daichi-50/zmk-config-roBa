@@ -53,6 +53,22 @@
 };
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        // 左親指の &lt 2 SPACE と 右親指の &lt 1 DEL を同時に押しっぱなしにすると
+        // 設定レイヤー(6) が有効になる。BT_SEL / BT_CLR はこのレイヤーにある。
+        //
+        // 元々は かなキーの &lt_to_layer_0 6 JP_KANA が唯一の入口だったが、
+        // 7f7430e「かなキーの長押し動作をCommandキーに戻す」で &mt LGUI JP_KANA に
+        // 置き換えた際に入口ごと失われ、レイヤー6 が到達不能になっていた。
+        // かなキーの Command を維持したいので、入口は別のキーに用意する。
+        bt_settings {
+            if-layers = <1 2>;
+            then-layer = <6>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
