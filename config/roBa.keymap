@@ -72,6 +72,11 @@
     combos {
         compatible = "zmk,combos";
 
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <0 1>;
+        };
+
         tab {
             bindings = <&kp TAB>;
             key-positions = <11 12>;
@@ -140,7 +145,7 @@
 &kp Q             &kp W         &kp E         &kp R            &kp T                                                  &kp Y        &kp U  &lt 5 I    &kp O    &kp P
 &kp A             &kp S         &kp D         &kp F            &kp G        &mt LG(LS(N5)) LG(LS(N4))                &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
 &kp Z             &kp X         &kp C         &kp V            &kp B        &mt LEFT_SHIFT COLON                    &mt LEFT_SHIFT SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&mt LCTRL ESCAPE  &mt SPACE TAB   &kp LEFT_ALT  &lt_to_layer_0 3 JP_EISU  &lt 2 SPACE  &mt LGUI JP_KANA      &mt LCTRL BACKSPACE  &mt RGUI ENTER                   &lt 1 DEL
+&mt LCTRL GLOBE   &mt SPACE TAB   &kp LEFT_ALT  &lt_to_layer_0 3 JP_EISU  &lt 2 SPACE  &mt LGUI JP_KANA      &mt LCTRL BACKSPACE  &mt RGUI ENTER                   &lt 1 DEL
             >;
 
             sensor-bindings = <&scroll_encoder>;
